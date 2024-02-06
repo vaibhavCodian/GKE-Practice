@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: asia-south1-docker.pkg.dev/terraform-practice-412313/gke-practice/backend
+        ports:
+        - containerPort: 80

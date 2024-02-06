@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: asia-south1-docker.pkg.dev/terraform-practice-412313/gke-practice/frontend
+        ports:
+        - containerPort: 80

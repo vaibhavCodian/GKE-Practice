@@ -1,0 +1,20 @@
+
+docker build -t asia-south1-docker.pkg.dev/terraform-practice-412313/gke-practice/backend backend/.
+docker push asia-south1-docker.pkg.dev/terraform-practice-412313/gke-practice/backend
+
+kubectl apply -f backend-deployment.yaml
+kubectl apply -f backend-service.yaml
+kubectl get pods
+kubectl get service
+
+# --> GET the Cluster IP of Backend and Paste in Nginx Config.
+
+docker build -t asia-south1-docker.pkg.dev/terraform-practice-412313/gke-practice/frontend frontend/.
+docker push asia-south1-docker.pkg.dev/terraform-practice-412313/gke-practice/frontend
+
+kubectl apply -f frontend-deployment.yaml
+kubectl apply -f frontend-service.yaml
+kubectl get pods
+kubectl get service
+
+# APPLICATION EXECUTION SUCCESSFUL
